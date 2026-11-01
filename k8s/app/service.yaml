@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: end-to-end-devops-project
+  namespace: devops-project
+  labels:
+    app: end-to-end-devops-project
+spec:
+  type: ClusterIP
+  selector:
+    app: end-to-end-devops-project
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

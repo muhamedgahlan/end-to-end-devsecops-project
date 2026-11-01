@@ -1,0 +1,26 @@
+prometheus:
+  prometheusSpec:
+    serviceMonitorNamespaceSelector: {}
+    serviceMonitorSelectorNilUsesHelmValues: false
+    ruleNamespaceSelector: {}
+    ruleSelectorNilUsesHelmValues: false
+
+grafana:
+  enabled: true
+  # Demo only. Change this, or pass it with: --set grafana.adminPassword=<password>
+  adminPassword: change-me
+  service:
+    type: LoadBalancer
+
+alertmanager:
+  enabled: true
+  alertmanagerSpec:
+    alertmanagerConfigNamespaceSelector:
+      matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: In
+          values:
+            - devops-project
+    alertmanagerConfigSelector:
+      matchLabels:
+        alertmanagerConfig: devops-project-email

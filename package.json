@@ -1,0 +1,27 @@
+{
+  "name": "end-to-end-devops-project",
+  "version": "1.0.0",
+  "description": "A simple modern website for an end-to-end DevSecOps project with GitLab CI/CD, Docker, Trivy, SonarQube, EKS, Prometheus, and Grafana.",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "gitlab-ci",
+    "devops",
+    "devsecops",
+    "eks",
+    "docker",
+    "terraform",
+    "prometheus",
+    "grafana"
+  ],
+  "author": "YOUR NAME",
+  "license": "MIT"
+}

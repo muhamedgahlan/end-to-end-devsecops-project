@@ -1,0 +1,10 @@
+node_modules
+coverage
+.git
+.scannerwork
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+README.md
+docs

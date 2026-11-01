@@ -1,0 +1,14 @@
+node_modules/
+coverage/
+.scannerwork/
+.sonar/
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate*
+*.tfvars
+.env
+*.pem
+*.key
+iam-policy.json

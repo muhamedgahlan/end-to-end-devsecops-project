@@ -1,0 +1,30 @@
+# Replace the e-mail address below with your own before applying.
+# The SMTP password is NOT stored here: create it as a Kubernetes secret (see README).
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: devops-project-email
+  namespace: devops-project
+  labels:
+    alertmanagerConfig: devops-project-email
+spec:
+  route:
+    receiver: email-team
+    groupBy:
+      - alertname
+    groupWait: 5s
+    groupInterval: 10s
+    repeatInterval: 2m
+
+  receivers:
+    - name: email-team
+      emailConfigs:
+        - to: your-email@example.com
+          from: your-email@example.com
+          smarthost: smtp.gmail.com:587
+          authUsername: your-email@example.com
+          authPassword:
+            name: alertmanager-smtp-secret
+            key: smtp-password
+          requireTLS: true
+          sendResolved: true

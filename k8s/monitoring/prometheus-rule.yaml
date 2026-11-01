@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: end-to-end-devops-project-alerts
+  namespace: devops-project
+  labels:
+    release: prometheus
+spec:
+  groups:
+    - name: end-to-end-devops-project.rules
+      rules:
+        - alert: WebsiteHighRequestBurst
+          expr: sum(increase(devops_project_http_requests_total{route="/"}[1m])) > 20
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: End to End DevOps Project website received more than 20 requests in one minute
+            description: The website crossed the project threshold of more than 20 requests in a one-minute window.
